@@ -72,22 +72,25 @@
                         <a href="{{ url('/home') }}">Beranda</a>
                     @else
                         <a href="{{ route('login') }}">Masuk</a>
-                        <a href="{{ route('register') }}">Daftar</a>
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Fisherman Market
+                    Fish Shop
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Dokumentasi</a>
-                    <a href="https://laracasts.com">Laracasts.</a>
-                    <a href="https://laravel-news.com">Berita</a>
-                    <a href="https://forge.laravel.com">Forge.</a>
-                    <a href="https://github.com/laravel/laravel">GitHub.</a>
+                    @if (Route::has('login'))
+                        <div class="top-right links">
+                            @auth
+                                <a href="{{ url('/home') }}">Beranda</a>
+                            @else
+                                <a href="{{ route('login') }}">Masuk</a>
+                            @endauth
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
